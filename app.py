@@ -300,7 +300,8 @@ def main():
     
     if not input_dir.exists():
         print(f"\nError: Directory {input_dir} does not exist")
-        print("Run post_process_fhir.py first to generate processed bundles")
+        print(f"Check that PROCESSED_FHIR_DIR (currently: '{processed_fhir_dir}') points to the correct directory")
+        print("or run post_process_fhir.py first to generate processed bundles")
         return
     
     # Upload

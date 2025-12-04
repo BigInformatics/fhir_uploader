@@ -266,6 +266,7 @@ def main():
     hostname = os.getenv('HTTP_HOSTNAME')
     client_id = os.getenv('HTTP_CLIENT_ID')
     client_secret = os.getenv('HTTP_CLIENT_SECRET')
+    processed_fhir_dir = os.getenv('PROCESSED_FHIR_DIR', './processed_fhir')
     
     if not all([hostname, client_id, client_secret]):
         print("Error: Missing environment variables")
@@ -295,11 +296,12 @@ def main():
         return
     
     # Upload processed bundles
-    input_dir = Path("./processed_fhir")
+    input_dir = Path(processed_fhir_dir)
     
     if not input_dir.exists():
         print(f"\nError: Directory {input_dir} does not exist")
-        print("Run post_process_fhir.py first to generate processed bundles")
+        print(f"Check that PROCESSED_FHIR_DIR (currently: '{processed_fhir_dir}') points to the correct directory")
+        print("or run post_process_fhir.py first to generate processed bundles")
         return
     
     # Upload

@@ -43,10 +43,9 @@ MANIFEST
 .DS_Store
 Thumbs.db
 
-# FHIR data directories
+# FHIR data directories (exclude data files but not config)
 processed_fhir/
 raw_fhir/
-*.json
 
 # Logs
 *.log
